@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     actualiza(user)
                 }else {
-                    Log.d("Crando Usuario", "Fallo")
+                    Log.d("Creando Usuario", "Fallo")
                     Toast.makeText(this, "Fallo en la creacion del usuario", Toast.LENGTH_LONG)
                     actualiza(null)
                 }
