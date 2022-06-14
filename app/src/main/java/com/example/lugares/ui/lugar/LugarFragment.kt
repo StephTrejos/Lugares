@@ -4,40 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.lugares.R
+import com.example.lugares.databinding.FragmentAddLugarBinding
 import com.example.lugares.databinding.FragmentLugarBinding
 import com.example.lugares.viewmodel.LugarViewModel
 
-class LugarFragment : Fragment() {
 
+class LugarFragment : Fragment(){
     private lateinit var lugarViewModel: LugarViewModel
     private var _binding: FragmentLugarBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
+    ): View? {
+        lugarViewModel =
+            ViewModelProvider(this).get(LugarViewModel::class.java)
 
-        _binding = FragmentLugarBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        _binding = FragmentLugarBinding.inflate(inflater,container, false)
 
-        val textView: TextView = binding.textHome
-
-        lugarViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        binding.addLugarFabButton.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment)
         }
-        return root
+        return binding.root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }}
+    }
+}
