@@ -19,5 +19,7 @@
     <string name="msg_telefono">Telefono (9999-9999)</string>
     <string name="msg_web">Sitio WEB</string>
     <string name="bt_agregar">Agregar</string>
-
+    <string name="msgLugarAgregado">Lugar Agregado</string>
+    <string name="msgFaltanDatos">Faltan Datos</string>
+    <string name="msgImagen">Imagen del Lugar</string>
 </resources>
