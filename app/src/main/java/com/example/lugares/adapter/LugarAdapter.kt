@@ -3,13 +3,14 @@ package com.example.lugares.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lugares.databinding.LugarFilaBinding
 import com.example.lugares.model.Lugar
 
 class LugarAdapter : RecyclerView.Adapter<LugarAdapter.LugarViewHolder>() {
     private var listaLugares = emptyList<Lugar>()
 
     inner class LugarViewHolder(private val itemBinding: LugarFilaBinding) :
-            RecyclerView.viewHolder(itemBinding.root){
+            RecyclerView.ViewHolder(itemBinding.root){
                 fun bind(lugar: Lugar){
                     itemBinding.tvTelefono.text = lugar.telefono
                     itemBinding.tvCorreo.text = lugar.correo
@@ -24,7 +25,7 @@ class LugarAdapter : RecyclerView.Adapter<LugarAdapter.LugarViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: LugarViewHolder, position: Int) {
-        val lugarActual = ListaLugares[position]
+        val lugarActual = listaLugares[position]
         holder.bind(lugarActual)
     }
 

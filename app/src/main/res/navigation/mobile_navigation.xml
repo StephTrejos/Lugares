@@ -35,4 +35,16 @@
             android:id="@+id/action_addLugarFragment_to_nav_lugar"
             app:destination="@id/nav_lugar" />
     </fragment>
+    <fragment
+        android:id="@+id/updateLugarFragment"
+        android:name="com.example.lugares.ui.lugar.UpdateLugarFragment"
+        android:label="@string/bt_updateLugar"
+        tools:layout="@layout/fragment_update_lugar" >
+        <action
+            android:id="@+id/action_updateLugarFragment_to_nav_lugar"
+            app:destination="@id/nav_lugar" />
+        <argument
+            android:name="lugar"
+            app:argType="com.lugares_v.model.Lugar" />
+    </fragment>
 </navigation>
