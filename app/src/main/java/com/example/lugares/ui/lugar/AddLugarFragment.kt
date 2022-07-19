@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.lugares.R
 import com.example.lugares.databinding.FragmentAddLugarBinding
 import com.example.lugares.model.Lugar
+import com.example.lugares.utiles.AudioUtiles
 import com.example.lugares.viewmodel.LugarViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,6 +24,9 @@ class AddLugarFragment : Fragment() {
     private var _binding: FragmentAddLugarBinding? = null
     private val binding get() = _binding!!
     private lateinit var lugarViewModel: LugarViewModel
+
+    private lateinit var audioUtiles: AudioUtiles
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,6 +38,16 @@ class AddLugarFragment : Fragment() {
         binding.btAgregar.setOnClickListener {
             addLugar()
         }
+
+        audioUtiles = AudioUtiles(
+            requireActivity(),
+            requireContext(),
+            binding.btAccion,
+            binding.btPlay,
+            binding.btDelete,
+            getString(R.string.msg_graba_audio),
+            getString(R.string.msg_detener_audio)
+        )
 
         ubicaGPS()
 
